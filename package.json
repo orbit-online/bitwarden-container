@@ -1,7 +1,6 @@
 {
-	"license": "UNLICENSED",
-	"version": "1.22.1-2",
-	"dependencies": {
-		"@bitwarden/cli": "1.22.1"
-	}
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@bitwarden/cli": "2023.7.0"
+  }
 }

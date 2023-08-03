@@ -12,4 +12,4 @@ upkg install -g orbit-online/bitwarden-container@<VERSION>
 
 ## Usage
 
-Just like [bw](https://contributing.bitwarden.com/getting-started/clients/cli)
+Just like [bw](https://bitwarden.com/help/cli/)

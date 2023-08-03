@@ -7,7 +7,7 @@ bw() {
   pkgroot=$(upkg root "${BASH_SOURCE[0]}")
   PATH="$pkgroot/.upkg/.bin:$PATH"
 
-  checkdeps jq
+  checkdeps jq docker
 
   local version image use_tty='' user_uid
   version=$(jq -r '.version // "latest" | sub("^v"; "")' "$pkgroot/upkg.json")

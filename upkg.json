@@ -1,6 +1,7 @@
 {
   "dependencies": {
-    "orbit-online/checkdeps": "v1.0.0"
+    "orbit-online/checkdeps": "v1.0.0",
+    "orbit-online/image-version": "v0.9.1"
   },
   "commands": {
     "bw": "bw.sh"

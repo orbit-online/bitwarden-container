@@ -10,7 +10,7 @@ bw() {
   checkdeps jq docker
 
   local version image use_tty='' user_uid
-  version=$(image-version "$(jq -r '.version' "$pkgroot/upkg.json" 2>/dev/null || git symbolic-ref HEAD)")
+  version=$(image-version "$(jq -re '.version // empty' "$pkgroot/upkg.json" 2>/dev/null || git symbolic-ref HEAD)")
   image="secoya/bitwarden-cli:$version"
   user_uid=$(id -u)
 

@@ -6,6 +6,8 @@ bw() {
   local pkgroot
   pkgroot=$(upkg root "${BASH_SOURCE[0]}")
   PATH="$pkgroot/.upkg/.bin:$PATH"
+  # shellcheck source=.upkg/orbit-online/records.sh/records.sh
+  source "$pkgroot/.upkg/orbit-online/records.sh/records.sh"
 
   checkdeps jq docker
 
@@ -15,6 +17,7 @@ bw() {
   user_uid=$(id -u)
 
   start_bw() {
+    [[ $(docker images -q "$image" 2>/dev/null) != "" ]] || info "Pulling %s" "$image"
     docker run --quiet --name bitwarden --detach --rm -e HOME -e "USER_UID=$user_uid" \
       -v"/tmp:/tmp" -v"${HOME}:${HOME}:rw" \
       "$image" >/dev/null

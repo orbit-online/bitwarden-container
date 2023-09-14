@@ -1,7 +1,8 @@
 {
   "dependencies": {
     "orbit-online/checkdeps": "v1.0.0",
-    "orbit-online/image-version": "v0.9.1"
+    "orbit-online/image-version": "v0.9.1",
+    "orbit-online/records.sh": "v0.9.3"
   },
   "commands": {
     "bw": "bw.sh"

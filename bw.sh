@@ -17,7 +17,12 @@ bw() {
   user_uid=$(id -u)
 
   start_bw() {
-    [[ $(docker images -q "$image" 2>/dev/null) != "" ]] || info "Pulling %s" "$image"
+    if [[ $(docker images -q "$image" 2>/dev/null) = "" ]]; then
+      # If using docker-credential-bitwarden we'll end up in an endless loop
+      # unless we tell the credential helper to not retrieve any credentials
+      export DOCKER_CREDENTIAL_BITWARDEN_FORCE_ANONYMOUS=true
+      info "Pulling %s" "$image"
+    fi
     docker run --quiet --name bitwarden --detach --rm -e HOME -e "USER_UID=$user_uid" \
       -v"/tmp:/tmp" -v"${HOME}:${HOME}:rw" \
       "$image" >/dev/null

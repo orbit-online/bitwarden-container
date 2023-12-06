@@ -1,3 +1,9 @@
+# No longer maintained
+
+This project was created to avoid node dependencies on workstations.  
+Bitwarden have [released their own binary now](https://bitwarden.com/help/cli/#download-and-install),
+obsoleting this project.
+
 # Bitwarden container
 
 A containerized version of bitwarden
